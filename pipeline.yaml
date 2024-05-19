@@ -1,0 +1,14 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: AzurePowerShell@5
+  inputs:
+    azureSubscription: 'myconnection'  # Replace with your service connection name
+    ScriptType: 'FilePath'
+    ScriptPath: 'deploy.ps1'
+    azurePowerShellVersion: 'LatestVersion'
+    azurePowerShellErrorActionPreference: 'stop'
